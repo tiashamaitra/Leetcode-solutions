@@ -30,8 +30,7 @@ public:
             }
         }
         
-        if(n > 0)
-            v.push_back({prevstart, prevend});
+        v.push_back({prevstart, prevend});
         
         return v;
     } 

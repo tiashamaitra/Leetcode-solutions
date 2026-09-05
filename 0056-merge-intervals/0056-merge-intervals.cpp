@@ -1,37 +1,27 @@
-class Solution { 
-public: 
-    vector<vector<int>> merge(vector<vector<int>>& intervals) { 
-        
-        int n = intervals.size();
+class Solution {
+public:
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        vector<vector<int>> ans;
+
         sort(intervals.begin(), intervals.end());
-        
-        vector<vector<int>> v;
-        
-        int prevstart = 0;
-        int prevend = 0;
-        
-        for(int i = 0; i < n; i++) 
-        { 
-            if(i == 0)
-            {
-                prevstart = intervals[i][0];
-                prevend = intervals[i][1];
+
+        int start = intervals[0][0];
+        int end = intervals[0][1];
+
+        for (int i = 1; i < intervals.size(); i++) {
+            if (intervals[i][0] > end) {
+                ans.push_back({start, end});
+
+                start = intervals[i][0];
+                end = intervals[i][1];
             }
-            else if(intervals[i][0] <= prevend)
-            { 
-                prevend = max(prevend, intervals[i][1]);
-            }
-            else
-            { 
-                v.push_back({prevstart, prevend});
-                
-                prevstart = intervals[i][0];
-                prevend = intervals[i][1];
+            else {
+                end = max(end, intervals[i][1]);
             }
         }
-        
-        v.push_back({prevstart, prevend});
-        
-        return v;
-    } 
+
+        ans.push_back({start, end});
+
+        return ans;
+    }
 };

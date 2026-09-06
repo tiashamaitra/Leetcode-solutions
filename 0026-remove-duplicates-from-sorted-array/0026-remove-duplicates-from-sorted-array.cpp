@@ -4,11 +4,15 @@ public:
         int n=nums.size();
         int i;
         int j=0;
-        for(i=0;i<n-1;i++)
+        for(i=1;i<n;i++)
         {
-            if (nums[i]!=nums[i+1])
+            if (nums[i]==nums[i-1])
             {
-                nums[j]=nums[i];
+                continue;
+            }
+            else
+            {
+                nums[j]=nums[i-1];
                 j++;
             }
 

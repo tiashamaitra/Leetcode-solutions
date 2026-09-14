@@ -1,21 +1,16 @@
 class Solution {
 public:
     char findTheDifference(string s, string t) {
+        char ans=0;
         int n1=s.size();
         int n2=t.size();
-        sort(s.begin(),s.end());
-        sort(t.begin(),t.end());
         int i;
         for(i=0;i<n1;i++)
         {
-            
-            if(s[i]!=t[i])
-            {
-                return t[i];
-            }
+            ans=ans^s[i];
+            ans=ans^t[i];
         }
-        return t[n2-1];
-        
-        
+        ans=ans^t[n2-1];
+        return ans;
     }
 };

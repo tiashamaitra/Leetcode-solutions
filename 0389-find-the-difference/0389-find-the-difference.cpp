@@ -6,12 +6,9 @@ public:
         sort(s.begin(),s.end());
         sort(t.begin(),t.end());
         int i;
-        for(i=0;i<n2;i++)
+        for(i=0;i<n1;i++)
         {
-            if(i==n1)
-            {
-                return t[i];
-            }
+            
             if(s[i]!=t[i])
             {
                 return t[i];

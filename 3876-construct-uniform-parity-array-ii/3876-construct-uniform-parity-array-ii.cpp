@@ -13,15 +13,12 @@ public:
             }
         }
 
-        // Already all odd
-        if (smallestEven == INT_MAX) {
+        // Already all odd or even
+        if (smallestEven == INT_MAX || smallestOdd == INT_MAX) {
             return true;
         }
 
-        // Already all even
-        if (smallestOdd == INT_MAX) {
-            return true;
-        }
+        
 
         // Mixed parity: make every even number odd
         return smallestOdd < smallestEven;
